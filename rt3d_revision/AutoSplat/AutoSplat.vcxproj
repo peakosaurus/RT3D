@@ -23,7 +23,7 @@
     <ProjectGuid>{5CD14220-34FE-4D8F-958F-EA9FECF02118}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>AutoSplat</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

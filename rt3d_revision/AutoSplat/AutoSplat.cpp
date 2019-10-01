@@ -1,4 +1,4 @@
-using namespace std;
+	using namespace std;
 
 #include <iostream>
 #include <fstream>
@@ -654,6 +654,10 @@ int CopyTIM2Buffer(int sourcex, int sourcey, int destx, int desty, int rot)
 {
 	// TO DO: Implement this function (see slides)
 
+	//paiting to screen
+	//
+	GetPixel()
+
 
 	return 0;
 }
@@ -670,11 +674,21 @@ int DrawSegments2Buffer(SEGMENT* pSegments)
 	// Note the code below should copy the TIM at index "tileIndex" to the map grid square "mapIndex" 
 	// CopyTIM2Buffer(_TIMXPOS(tileIndex), _TIMYPOS(tileIndex), _MAPXPOS(mapIndex), _MAPYPOS(mapIndex), tileRot);
 
-	for (int i = 0; i < 256; i++) {
+	/*for (int i = 0; i < 256; i++) {
 		for (int poly = 0; poly < 16; poly++) {
 			POLYSTRUCT polystruct = pSegments->strTilePolyStruct[i];
 		}
 	}
+
+	for (int )
+*/
+
+	//for (int x = 0; x < 16; x++) {
+	//	for (int y = 0; y < 16; y++){
+	//		CopyTIM2Buffer(_TIMXPOS(pSegments[0].strTilePolyStruct[0].cTileRef), _TIMXPOS(pSegments[0].strTilePolyStruct[0].cTileRef),_MAPXPOS(),_MAPYPOS(),tileRot)
+
+	//	}
+	//}
 
 //function to find the right tile somewhere!?!?!
 	return 0;
