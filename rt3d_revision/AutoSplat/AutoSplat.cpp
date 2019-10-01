@@ -654,9 +654,54 @@ int CopyTIM2Buffer(int sourcex, int sourcey, int destx, int desty, int rot)
 {
 	// TO DO: Implement this function (see slides)
 
-	//paiting to screen
-	//
-	GetPixel()
+	for (int i = 0; i < 32; i++)
+	{
+		for (int j = 0; j < 32; j++)
+		{	
+
+			int rotMidpointX = destx + 16;
+			int rotMidpointY = desty + 16;
+			int Matrix[3][3];
+
+			switch (rot) {
+			case 0:
+
+				break;
+
+			case 1:
+				//flip in x = (32-x,y)
+				break;
+
+			case 2:
+				//rotate 90 x ----- (y becomes -x) (X BECOMES +Y) 
+				break;
+
+			case 3:
+
+				break;
+
+			case 4:
+
+				break;
+
+			case 5:
+
+				break;
+
+			case 6:
+
+				break;
+
+			case 7:
+
+				break;
+			}
+
+			Color c = GetPixel(sourcex + i, sourcey+ j);
+			SetBufferPixel(destx + i, desty + j, c);
+		}
+
+	}
 
 
 	return 0;
@@ -674,21 +719,23 @@ int DrawSegments2Buffer(SEGMENT* pSegments)
 	// Note the code below should copy the TIM at index "tileIndex" to the map grid square "mapIndex" 
 	// CopyTIM2Buffer(_TIMXPOS(tileIndex), _TIMYPOS(tileIndex), _MAPXPOS(mapIndex), _MAPYPOS(mapIndex), tileRot);
 
-	/*for (int i = 0; i < 256; i++) {
-		for (int poly = 0; poly < 16; poly++) {
-			POLYSTRUCT polystruct = pSegments->strTilePolyStruct[i];
-		}
+	
+	 //looping through to all the segments, then the polystructs
+	for (int x = 0; x < 256; x++) {
+		SEGMENT currentSegment = pSegments[x];
+	
+		for (int y = 0; y < 16; y++){
+			int mapX;
+			int mapY;
+
+			mapX = ((x%16)*4 + (y%4));
+			mapY = floor((x/16)) * 4 + floor((y/4));
+			POLYSTRUCT currentPolystruct = currentSegment.strTilePolyStruct[y];
+			CopyTIM2Buffer(_TIMXPOS(currentPolystruct.cTileRef), _TIMYPOS(currentPolystruct.cTileRef), mapX*32, mapY*32, currentPolystruct.cRot);
+
+		}   
+
 	}
-
-	for (int )
-*/
-
-	//for (int x = 0; x < 16; x++) {
-	//	for (int y = 0; y < 16; y++){
-	//		CopyTIM2Buffer(_TIMXPOS(pSegments[0].strTilePolyStruct[0].cTileRef), _TIMXPOS(pSegments[0].strTilePolyStruct[0].cTileRef),_MAPXPOS(),_MAPYPOS(),tileRot)
-
-	//	}
-	//}
 
 //function to find the right tile somewhere!?!?!
 	return 0;
