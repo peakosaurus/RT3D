@@ -1,4 +1,3 @@
 ﻿  AutoSplat.cpp
-f:\year3\rt3d\rt3d\rt3d_revision\autosplat\autosplat.cpp(664): warning C4101: 'Matrix': unreferenced local variable
-f:\year3\rt3d\rt3d\rt3d_revision\autosplat\autosplat.cpp(732): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+f:\year3\rt3d\rt3d\rt3d_revision\autosplat\autosplat.cpp(763): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   AutoSplat.vcxproj -> F:\Year3\RT3D\RT3D\rt3d_revision\x64\Debug\AutoSplat.exe

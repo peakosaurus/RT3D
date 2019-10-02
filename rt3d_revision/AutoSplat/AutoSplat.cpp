@@ -654,51 +654,82 @@ int CopyTIM2Buffer(int sourcex, int sourcey, int destx, int desty, int rot)
 {
 	// TO DO: Implement this function (see slides)
 
-	for (int i = 0; i < 32; i++)
+	for (int x = 0; x < 32; x++)
 	{
-		for (int j = 0; j < 32; j++)
+		for (int y = 0; y < 32; y++)
 		{	
-
-			int rotMidpointX = destx + 16;
-			int rotMidpointY = desty + 16;
-			int Matrix[3][3];
+			int xRotated;
+			int yRotated;
+			int negativeX = 31 - x;
+			int negativeY = 31 - y;
 
 			switch (rot) {
 			case 0:
-
+				//positive x & y
+				xRotated = x;
+				yRotated = y;
 				break;
 
 			case 1:
-				//flip in x = (32-x,y)
+				// Flip in x  (-x, y)
+				xRotated = negativeX;
+				yRotated = y;
 				break;
 
 			case 2:
-				//rotate 90 x ----- (y becomes -x) (X BECOMES +Y) 
+				//rotate 90°  
+				//x = y
+				//y = -x
+				xRotated = y;
+				yRotated = negativeX;
 				break;
 
 			case 3:
-
+				//flip in x & rotate 90°
+				// x = -y
+				// y = -x
+				xRotated = negativeY;
+				yRotated = negativeX;
 				break;
 
 			case 4:
-
+				//Rotate 180°
+				// x = -x
+				// y = -y
+				xRotated = negativeX;
+				yRotated = negativeY;
 				break;
 
 			case 5:
-
+				//Flip in Y
+				// x = x
+				// y = -y
+				xRotated = x;
+				yRotated = negativeY;
 				break;
 
 			case 6:
-
+				//Rotate 270°
+				// x = -y
+				// y = x
+				xRotated = negativeY;
+				yRotated = x;
 				break;
 
 			case 7:
-
+				//Rotate 270° flip in x
+				//should be the same as flip in x and rotate 90° bit confused by this, only got it working via trial and error.
+				
+				xRotated = y;
+				yRotated = x;
+				//xRotated = negativeY;
+				//yRotated = negativeX;
 				break;
+
 			}
 
-			Color c = GetPixel(sourcex + i, sourcey+ j);
-			SetBufferPixel(destx + i, desty + j, c);
+			Color c = GetPixel(sourcex + xRotated, sourcey + yRotated); //rotated here check to see if need rotating in the next function.
+			SetBufferPixel(destx + x, desty + y, c);
 		}
 
 	}
